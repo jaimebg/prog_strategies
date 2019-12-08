@@ -13,24 +13,18 @@ def rob_top_down(v, i):
 
     return max(rob_this_house, dont_rob_this_house)
 
-i = 2
 
 def rob_bottom_up(v):
-    global i
     if len(v) == 1:
         return v[0]
 
-    res = [None] * (len(v) + 1)
-
     # base cases
-    res[0] = v[0]
-    res[1] = max(v[0], v[1])
-    
-    for house in v:
+    res = [v[0], max(v[0], v[1])]
+
+    for i in range(2, len(v)):
         rob_this_house = v[i] + res[i - 2]
         dont_rob_this_house = res[i - 1]
-        res[i] = max(rob_this_house, dont_rob_this_house)
-        i = i + 1
+        res.append(max(rob_this_house, dont_rob_this_house))
     return res[-1]
 
 
