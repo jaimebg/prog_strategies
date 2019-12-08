@@ -14,15 +14,15 @@ def mem(m, n):
     return cache[key]
 
 
-array = []
-
-
 def tab(m, n):
+    array = [[1 for x in range(n)] for x in range(m)]
     if m == 0 or n == 0:
-        return 1
+        array[m][n] = 1
 
-    array.append(tab(m-1, n) + tab(m-1, n-1) + tab(m, n-1))
-    return array[-1]
+    for i in range(m):
+        for j in range(n):
+            array[i][j] = array[i-1][j] + array[i-1][j-1] + array[i][j-1]
+    return array[m-1][n-1]
 
 
 print("Memoization: ")

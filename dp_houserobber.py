@@ -1,24 +1,18 @@
 # Given an array return max sum of not adjacent values.
 # v = 3 10 3 1 2; res = 12
+from time import time
 
 
 def rob_top_down(v, i):
-    if len(v) == 1:
-        return v[i]
-    if i < 0 or i > len(v):
+    if i < 0:
         return 0
 
     rob_this_house = v[i] + rob_top_down(v, i - 2)
     dont_rob_this_house = rob_top_down(v, i - 1)
-
     return max(rob_this_house, dont_rob_this_house)
 
 
 def rob_bottom_up(v):
-    if len(v) == 1:
-        return v[0]
-
-    # base cases
     res = [v[0], max(v[0], v[1])]
 
     for i in range(2, len(v)):
@@ -29,5 +23,15 @@ def rob_bottom_up(v):
 
 
 a = [3, 10, 3, 1, 2]
+print("Memoization (Top-Down):", end=" ")
+startTime = time()
 print(rob_top_down(a, len(a) - 1))
+elapsedTime = time() - startTime
+print("Execution time:", elapsedTime * 1000, "milliseconds\n")
+print("Tabulation (Bottom-Up):", end=" ")
+startTime = time()
 print(rob_bottom_up(a))
+elapsedTime = time() - startTime
+print("Execution time:", elapsedTime * 1000, "milliseconds\n")
+
+

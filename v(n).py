@@ -21,13 +21,6 @@ def tab(n):
         array.append(array[array[i-1]] + array[i - array[i-1]])
     return array[-1]
 
-    # for a in range(n-4):
-    #     i = 2
-    #     array[i] = array[array[n-1]] + array[n - array[n-1]]
-    #     i = i + 1
-    #
-    # return array
-
 
 print("Memoization: ")
 print(mem(10))

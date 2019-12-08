@@ -24,5 +24,3 @@ def nextComb():
             combination[i] = 0
             continue
     return combination
-
-
