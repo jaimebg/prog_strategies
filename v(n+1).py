@@ -13,13 +13,21 @@ def mem(n):
     return cache[n]
 
 
-def tab(n):
-    array = [1]
+array = []
 
-    for i in range(1, n):
-        #array[i] = 1 + array[i - array[array[i-1]]]
-        array.append(1 + array[i - array[array[i-1]]])
+
+def tab(n):
+    if n == 1:
+        return 1
+
+    array.append(1 + tab(n - tab(tab(n-1))))
     return array[-1]
+
+    # array = [1]
+    #
+    # for i in range(1, n):
+    #     array[i] = 1 + array[i - array[array[i-1]]]
+    # return array[-1]
 
 
 print("Memoization: ")

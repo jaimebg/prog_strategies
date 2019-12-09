@@ -15,7 +15,7 @@ def mem(m, n):
 
 
 def tab(m, n):
-    array = [[1 for x in range(n)] for x in range(m)]
+    array = [[1 for x in range(n+1)] for x in range(m+1)]
     if m == 0 or n == 0:
         array[m][n] = 1
 
@@ -31,9 +31,14 @@ print(mem(4, 5))
 print(mem(5, 4))
 print(mem(3, 4))
 print(mem(4, 3))
+print(mem(1, 2))
+print(mem(1, 1))
 print("Tabulation: ")
 print(tab(5, 5))
 print(tab(4, 5))
 print(tab(5, 4))
 print(tab(3, 4))
 print(tab(4, 3))
+print(tab(2, 3))
+print(tab(1, 2))
+print(tab(1, 1))
